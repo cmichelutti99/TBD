@@ -1,7 +1,7 @@
 DB structure
 
 Patients
-- id
+- id (int, A_I)
 - first_name (string)
 - last_name (string)
 - fiscal_code (string)
@@ -9,13 +9,13 @@ Patients
 - doctor_id
 
 Doctors
-- id
+- id (int, A_I)
 - first_name (string)
 - last_name (string)
 - user_name (string)
 - password (string)
 
 Measurements
-- date_time (datetime)
+- date_time (datetime/int (11) - timestamp)
 - temperature (float)
 - patient_id
