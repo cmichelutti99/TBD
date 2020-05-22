@@ -5,8 +5,8 @@ if(isset($_GET['edit'])){
     $edit_state = true;
     $rec = mysqli_query($db, "SELECT * FROM patients WHERE id=$id");
     $record = mysqli_fetch_array($rec);
-    $firstname = $record['first_name'];
-    $lastname = $record['last_name'];
+    $first_name = $record['first_name'];
+    $last_name = $record['last_name'];
     $id = $record['id'];
 }
 
@@ -62,12 +62,12 @@ if(isset($_GET['edit'])){
         <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="input-group">
                 <label>First name</label>
-                <input type="text" name="firstname" value="<?php echo $firstname; ?> ">
+                <input type="text" name="firstname" value="<?php echo $first_name; ?> ">
             
             </div>
             <div class="input-group">
                 <label>Last name</label>
-                <input type="text" name="lastname" value="<?php echo $lastname; ?> ">
+                <input type="text" name="lastname" value="<?php echo $last_name; ?> ">
             
             </div>
             <div class="input-group">
