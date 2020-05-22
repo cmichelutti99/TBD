@@ -1,3 +1,8 @@
+<?php
+require_once("./includes/config.inc.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,10 +32,10 @@
       <div class="sidebar-heading">Placeholder </div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Site#1</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Site#2</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Site3#</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Site4#</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">List Patients</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Add Patiens</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">List Doctors</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Add Doctors</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
