@@ -3,10 +3,10 @@
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $edit_state = true;
-    $rec = mysqli_query($db, "SELECT * FROM Patient WHERE id=$id");
+    $rec = mysqli_query($db, "SELECT * FROM patients WHERE id=$id");
     $record = mysqli_fetch_array($rec);
-    $firstname = $record['firstname'];
-    $lastname = $record['lastname'];
+    $firstname = $record['first_name'];
+    $lastname = $record['last_name'];
     $id = $record['id'];
 }
 
@@ -44,8 +44,8 @@ if(isset($_GET['edit'])){
             <?php while ($row = mysqli_fetch_array($results)){?>
                 <tr>
                     <td><?php echo $row['id']?></td>
-                    <td><?php echo $row['firstname']?></td>
-                    <td><?php echo $row['lastname']?></td>
+                    <td><?php echo $row['first_name']?></td>
+                    <td><?php echo $row['last_name']?></td>
                     <td>
                         <a class ="edit_btn" href="index.php?edit=<?php echo $row['id']; ?>">Edit</a>
                     </td>
