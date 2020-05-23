@@ -1,0 +1,12 @@
+body{
+    
+    background: linear-gradient(rgba(0, 0, 50, 0.5) rgba(0, 0, 50, 0.5)), url(./image/doctor.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    top: 50%;
+    margin-top: 8em;
+    left: 50%;
+   
+}
