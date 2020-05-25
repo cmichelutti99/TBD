@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+	if(isset($_SESSION['username'])){
+		
+		header('location:index.php');
+	}
+ // If user's already logged in, redirect to index.php
+ 
+ 
+?>
+
 <html>
     <head>
         

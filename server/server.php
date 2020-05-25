@@ -1,4 +1,5 @@
 <?php
+require_once("./includes/config.inc.php");
 
 session_start();
 
@@ -7,8 +8,6 @@ $last_name = "";
 $id = 0;
 $edit_state = false;
 
-
-$db = mysqli_connect('localhost', 'root', '', 'TBD');
 
 if (isset($_POST['add'])){
     $first_name = $_POST['first_name'];

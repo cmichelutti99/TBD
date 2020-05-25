@@ -1,14 +1,18 @@
 <?php include('server.php'); 
 
-if(isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $edit_state = true;
-    $rec = mysqli_query($db, "SELECT * FROM patients WHERE id=$id");
-    $record = mysqli_fetch_array($rec);
-    $first_name = $record['first_name'];
-    $last_name = $record['last_name'];
-    $id = $record['id'];
-}
+
+	if (isset($_SESSION['username'])){
+	//Is the user_name set? == Is user logged in?
+
+			if(isset($_GET['edit'])){
+				$id = $_GET['edit'];
+				$edit_state = true;
+				$rec = mysqli_query($db, "SELECT * FROM patients WHERE id=$id");
+				$record = mysqli_fetch_array($rec);
+				$first_name = $record['first_name'];
+				$last_name = $record['last_name'];
+				$id = $record['id'];
+			}
 
 ?>
 
@@ -29,7 +33,7 @@ if(isset($_GET['edit'])){
             </div>
         <?php endif?>
         
-        
+        <h3>Welcome <?php echo $_SESSION['username']; ?></h3>
         <table>
         <thead>
             <tr>
@@ -81,3 +85,13 @@ if(isset($_GET['edit'])){
         </form>
     </body>
 </html>
+
+<?php
+
+	}else{
+		
+		die("You're not allowed to access this page! <a href='./login.php'>Back to login</a>");
+		
+	}
+
+?>
