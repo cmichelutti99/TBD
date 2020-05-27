@@ -38,10 +38,6 @@ session_start();
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" required>
                     </div>
-                <div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <a href="register.php">Register here</a>
-                </div>
                     
                 </form>
         </div>
