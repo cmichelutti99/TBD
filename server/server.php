@@ -6,14 +6,16 @@ session_start();
 $first_name = "";
 $last_name = "";
 $id = 0;
+$fiscal_code="";
 $edit_state = false;
 
 
 if (isset($_POST['add'])){
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $fiscal_code = $_POST['fiscal_code'];
     
-    $query = "INSERT INTO patients (first_name, last_name) VALUES ('$first_name', '$last_name')";
+    $query = "INSERT INTO `patients` (`id`, `first_name`, `last_name`, `fiscal_code`, `password`, `ip_addr`, `email`, `doctor_id`) VALUES ('$id', '$first_name', '$last_name', '$fiscal_code', '', '', '', '123466')";
     
     mysqli_query($db, $query);
     $_SESSION['msg'] = "Patient saved";
@@ -22,11 +24,12 @@ if (isset($_POST['add'])){
 
 if (isset($_POST['update'])){
     
-    $first_name = mysqli_real_escape_string($_POST['first_name']);
-    $last_name = mysqli_real_escape_string($_POST['last_name']);
-    $id = mysqli_real_escape_string($_POST['id']);
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $fiscal_code = $_POST['fiscal_code'];
+    $id = $_POST['id'];
     
-    mysqli_query($db, "UPDATE patients SET first_name = '$first_name', last_name ='$last_name' WHERE id=$id");
+    mysqli_query($db, "UPDATE 'patients' SET 'first_name' = '$first_name', 'last_name = '$last_name','fiscal_code'= '$fiscal_code' WHERE 'patients'.'id' = '$id';");
     $_SESSION['msg'] = "Patient updated";
     header('location: index.php');
 }
