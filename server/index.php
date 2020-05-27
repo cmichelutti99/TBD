@@ -11,6 +11,7 @@
 				$record = mysqli_fetch_array($rec);
 				$first_name = $record['first_name'];
 				$last_name = $record['last_name'];
+                $fiscal_code= $record['fiscal_code'];
 				$id = $record['id'];
 			}
 
@@ -34,58 +35,46 @@
         <?php endif?>
         
         <h3>Welcome <?php echo $_SESSION['username']; ?></h3>
+        <form action="dashboard.php" method="post">
+        <button type="submit" name="back" class="btn">Back</button>
+        </form>
         <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Fiscal code</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
-        <tbody>
             <?php while ($row = mysqli_fetch_array($results)){?>
+            
                 <tr>
                     <td><?php echo $row['id']?></td>
                     <td><?php echo $row['first_name']?></td>
                     <td><?php echo $row['last_name']?></td>
+                    <td><?php echo $row['fiscal_code']?></td>
                     <td>
-                        <a class ="edit_btn" href="index.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                        <a class ="edit_btn" href="add.php?edit=<?php echo $row['id']; ?>">Edit</a>
                     </td>
                     <td>
                         <a class="del_btn" href="server.php?del=<?php echo $row['id']; ?>">Delete</a>
                     </td>
                 </tr>
-           <?php }?>
-           
-        </tbody>
+            <?php }?>
         </table>
-        
-        <form method="post" action="server.php">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <div class="input-group">
-                <label>First name</label>
-                <input type="text" name="firstname" value="<?php echo $first_name; ?> ">
-            
-            </div>
-            <div class="input-group">
-                <label>Last name</label>
-                <input type="text" name="lastname" value="<?php echo $last_name; ?> ">
-            
-            </div>
-            <div class="input-group">
-                <?php if ($edit_state == false): ?>
-                    <button type="submit" name="add" class="btn">Add</button>
-                <?php else: ?>
-                    <button type="submit" name="update" class="btn">Update</button>
-                <?php endif ?>
-            
-            </div>
+        <form action="logout.php" method="post">
+        <button type="submit" name="logout" class="btn">Logout</button>
         </form>
+        
     </body>
+    
 </html>
 
+
+        
 <?php
 
 	}else{
