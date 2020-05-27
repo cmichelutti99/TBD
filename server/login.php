@@ -14,7 +14,7 @@ session_start();
 <html>
     <head>
         
-    <title>Login and Registration</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="stylelogin.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     
@@ -38,6 +38,9 @@ session_start();
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" required>
                     </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
                     
                 </form>
         </div>
