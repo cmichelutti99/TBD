@@ -15,7 +15,7 @@ if (isset($_POST['add'])){
     $last_name = $_POST['last_name'];
     $fiscal_code = $_POST['fiscal_code'];
     
-    $query = "INSERT INTO `patients` (`id`, `first_name`, `last_name`, `fiscal_code`, `password`, `ip_addr`, `email`, `doctor_id`) VALUES ('$id', '$first_name', '$last_name', '$fiscal_code', '', '', '', '123466')";
+    $query = "INSERT INTO `patients` (`id`, `first_name`, `last_name`, `fiscal_code`, `ip_addr`, `email`, `doctor_id`) VALUES ('$id', '$first_name', '$last_name', '$fiscal_code', '', '', '123466')";
     
     mysqli_query($db, $query);
     $_SESSION['msg'] = "Patient saved";
