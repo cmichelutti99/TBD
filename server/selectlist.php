@@ -48,7 +48,7 @@ if(isset($_GET['edit'])){
             <?php while ($row = mysqli_fetch_array($results)){?>
                 <tr>
                     <td>
-                        <?php echo '<a href="appointment.php?id='.$row['id'].'">'Select'</a>'; ?>
+                        <?php echo '<a href="appointment.php?id='.$row['id'].'">Select</a>'; ?>
                     </td>
                     <td><?php echo $row['id']?></td>
                     <td><?php echo $row['first_name']?></td>
@@ -56,11 +56,3 @@ if(isset($_GET['edit'])){
                     <td><?php echo $row['fiscal_code']?></td>
                 </tr>
            <?php }?>
-           
-        </tbody>
-        </table>
-        <form action="logout.php" method="post">
-        <button type="submit" name="logout" class="btn">Logout</button>
-        </form>
-    </body>
-</html>
