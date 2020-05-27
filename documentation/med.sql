@@ -45,10 +45,9 @@ CREATE TABLE `doctors` (
 --
 
 CREATE TABLE `measure` (
-  `id` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
   `date_time` datetime(6) NOT NULL,
   `temp` float NOT NULL,
+  `notes` varchar(200) NOT NULL,
   `patient_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
