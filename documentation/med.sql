@@ -47,7 +47,7 @@ CREATE TABLE `doctors` (
 CREATE TABLE `measure` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `date_time` int(11) NOT NULL,
+  `date_time` datetime(6) NOT NULL,
   `temp` float NOT NULL,
   `patient_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,7 +63,6 @@ CREATE TABLE `patients` (
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `fiscal_code` varchar(30) NOT NULL,
-  `password` varchar(32) NOT NULL,
   `ip_addr` varchar(25) NOT NULL,
   `email` varchar(30) NOT NULL,
   `doctor_id` int(11) NOT NULL
