@@ -24,16 +24,6 @@ if(isset($_GET['edit'])){
         <button type="submit" name="back" class="btn">Back</button>
         </form>
         
-        <?php if(isset($_SESSION['msg'])): ?>
-            <div class="msg">
-                <?php
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                ?>
-            </div>
-        <?php endif?>
-        
-        
         <table>
         <thead>
             <tr>
