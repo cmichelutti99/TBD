@@ -32,7 +32,7 @@ session_start();
 	
 			$_SESSION['username'] = $user_name;
 	
-			header('location:index.php');
+			header('location:dashboard.php');
 		}else{
 	
 	//die("Wrong Username or Password!");
@@ -53,3 +53,4 @@ session_start();
 	}
 
 ?>
+
