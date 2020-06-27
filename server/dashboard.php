@@ -37,7 +37,7 @@ if(!isset($_SESSION['username'])){
             
             <form action="add.php" method="post">
                 <button type="submit" name="addpatient" class="btn">Add patient</button>
-				
+
             </form>
 			
 			<form action="patientlist.php" method="post">
