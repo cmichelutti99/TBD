@@ -1,5 +1,10 @@
 <?php 
 
+	if(!isset($_SESSION['username'])){
+	header('location: login.php');
+	}
+
+
 if(isset($_GET['id']))
 {
     $item_id = $_GET['id'];

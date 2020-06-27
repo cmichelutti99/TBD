@@ -19,7 +19,7 @@ if (isset($_POST['add'])){
     
     mysqli_query($db, $query);
     $_SESSION['msg'] = "Patient saved";
-    header('location: index.php');
+    header('location: patientlist.php');
 }
 
 if (isset($_POST['update'])){
@@ -29,16 +29,18 @@ if (isset($_POST['update'])){
     $fiscal_code = $_POST['fiscal_code'];
     $id = $_POST['id'];
     
-    mysqli_query($db, "UPDATE 'patients' SET 'first_name' = '$first_name', 'last_name = '$last_name','fiscal_code'= '$fiscal_code' WHERE 'patients'.'id' = '$id';");
+	$sql = "UPDATE `patients` SET `first_name` = \' neg\', `last_name` = \'er\', `fiscal_code` = \'12\' WHERE `patients`.`id` = 2";
+	
+    mysqli_query($db, "UPDATE `patients` SET `first_name` = '$first_name', `last_name` = '$last_name', `fiscal_code` = '$fiscal_code' WHERE `patients`.`id` = $id");
     $_SESSION['msg'] = "Patient updated";
-    header('location: index.php');
+    header('location: patientlist.php');
 }
 
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
     mysqli_query($db, "DELETE FROM patients WHERE id=$id");
     $_SESSION['msg'] = "Patient deleted";
-    header('location: index.php');
+    header('location: patientlist.php');
 }
 
 $results = mysqli_query($db, "SELECT * FROM patients");

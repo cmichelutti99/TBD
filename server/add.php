@@ -1,13 +1,19 @@
 <?php include('server.php'); 
 
+if(!isset($_SESSION['username'])){
+	header('location: login.php');
+}
+
+
+
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $edit_state = true;
-    $rec = mysqli_query($db, "SELECT * FROM Patient WHERE id=$id");
+    $rec = mysqli_query($db, "SELECT * FROM patients WHERE id=$id");
     $record = mysqli_fetch_array($rec);
-    $firstname = $record['firstname'];
-    $lastname = $record['lastname'];
-    $id = $record['id'];
+    $first_name = $record['first_name'];
+    $last_name = $record['last_name'];
+	$fiscal_code = $record['fiscal_code'];
 }
 
 ?>
@@ -22,21 +28,21 @@ if(isset($_GET['edit'])){
         <button type="submit" name="back" class="btn">Back</button>
         </form>
 
-<form method="post" action="server.php">
+			<form method="post" action="server.php" name>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="input-group">
                 <label>First name</label>
-                <input type="text" name="first_name" value="<?php echo $first_name; ?> ">
+                <input type="text" name="first_name" value="<?php echo $first_name; ?>">
             
             </div>
             <div class="input-group">
                 <label>Last name</label>
-                <input type="text" name="last_name" value="<?php echo $last_name; ?> ">
+                <input type="text" name="last_name" value="<?php echo $last_name; ?>">
             
             </div>
             <div class="input-group">
                 <label>Fiscal code</label>
-                <input type="text" name="fiscal_code" value="<?php echo $fiscal_code; ?> ">
+                <input type="text" name="fiscal_code" value="<?php echo $fiscal_code; ?>">
         
             </div>
             <div class="input-group">

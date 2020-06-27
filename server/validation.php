@@ -32,12 +32,12 @@ session_start();
 	
 			$_SESSION['username'] = $user_name;
 	
-			header('location:dashboard.php');
+			header('location: dashboard.php');
 		}else{
 	
 	//die("Wrong Username or Password!");
 	
-    header('location:login.php');
+    header('location: login.php');
 		}
 
 
@@ -48,7 +48,7 @@ session_start();
 		//and it'll be only shown if no POST data have been submitted
 		
 		
-		header('location:login.php');
+		header('location: login.php');
 		
 	}
 

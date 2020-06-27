@@ -4,10 +4,6 @@ if(!isset($_SESSION['username'])){
 	header('location: login.php');
 }
 
-
-	if (isset($_SESSION['username'])){
-	//Is the user_name set? == Is user logged in?
-
 			if(isset($_GET['edit'])){
 				$id = $_GET['edit'];
 				$edit_state = true;
@@ -76,15 +72,3 @@ if(!isset($_SESSION['username'])){
     </body>
     
 </html>
-
-
-        
-<?php
-
-	}else{
-		
-		die("You're not allowed to access this page! <a href='./login.php'>Back to login</a>");
-		
-	}
-
-?>

@@ -1,5 +1,9 @@
 <?php include('server.php'); 
 
+if(!isset($_SESSION['username'])){
+	header('location: login.php');
+}
+
 
 	if (isset($_SESSION['username'])){
 	//Is the user_name set? == Is user logged in?
@@ -33,6 +37,11 @@
             
             <form action="add.php" method="post">
                 <button type="submit" name="addpatient" class="btn">Add patient</button>
+				
+            </form>
+			
+			<form action="patientlist.php" method="post">
+                <button type="submit" class="btn">Show patients</button>
             </form>
         </div>
         <form action="logout.php" method="post">

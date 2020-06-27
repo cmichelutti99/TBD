@@ -13,7 +13,7 @@
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
-$dbname = 'TBD';
+$dbname = 'med';
 
 $db = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 // Check connection
