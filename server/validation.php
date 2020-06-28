@@ -18,7 +18,7 @@ session_start();
 			$password = mysqli_real_escape_string($db, $password);
 
 
-			$s = "SELECT * FROM doctors WHERE user_name= '$user_name' && password = '".md5($password)."'"; // added md5() for encrypting the password
+			$s = "SELECT * FROM doctors WHERE user_name= '$user_name' && password = '$password'"; // added md5() for encrypting the password
 
 			$result= mysqli_query($db, $s);
 			$num = mysqli_num_rows($result);
@@ -35,7 +35,7 @@ session_start();
 			header('location: dashboard.php');
 		}else{
 	
-	//die("Wrong Username or Password!");
+	die("Wrong Username or Password! <a href= './login.php'>Back to login</a>");
 	
     header('location: login.php');
 		}
