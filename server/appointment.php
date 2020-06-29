@@ -1,5 +1,9 @@
 <?php 
-
+require_once("./includes/config.inc.php");
+	
+	
+	session_start();
+	
 	if(!isset($_SESSION['username'])){
 	header('location: login.php');
 	}
@@ -9,9 +13,10 @@ if(isset($_GET['id']))
 {
     $item_id = $_GET['id'];
     
-    $connect = mysqli_connect('localhost', 'root', '', 'TBD');
+
     
-    $query = mysqli_query($connect, "SELECT * FROM patients WHERE id='$item_id'");
+    $query = mysqli_query($db, "SELECT * FROM patients WHERE id='$item_id'");
+	$query2 = mysqli_query($db, "SELECT * FROM appoint WHERE uid='$item_id'");
 }
 
 ?>
@@ -20,11 +25,20 @@ if(isset($_GET['id']))
       <!DOCTYPE html>
 <html>
 <head>
-        <title>Patient</title>
+        <title>Appointments</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         
+		        <?php if(isset($_SESSION['msg'])): ?>
+            <div class="msg">
+                <?php
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                ?>
+            </div>
+        <?php endif?>
+		
         <h1>Information</h1>
         <form action="selectlist.php" method="post">
         <button type="submit" name="back" class="btn">Back</button>
@@ -51,22 +65,59 @@ if(isset($_GET['id']))
            
         </tbody>
         </table>
+		
+		
+		
+			        <h1>Appointments</h1>
+		<table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Measure</td>
+                <td>Notes</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($res = mysqli_fetch_array($query2)){?>
+                <tr>
+                    <td><?php echo $res['id']?></td>
+                    <td><?php echo $res['measure']?></td>
+                    <td><?php echo $res['notes']?></td>
+                    <td><?php echo $res['date']?></td>
+                </tr>
+           <?php }?>
+           
+        </tbody>
+        </table>
         
         <h1>Measurement</h1>
         <table>
         
-                <div class="input-group">
-                <label>Temperature</label>
-                <input type="number" name="temperature" >
-            </div>
+			            <form action="addmeasures.php" method="post">
+				<input type="hidden" name="doctorid" value="<?php echo $_SESSION['doctorid'];?>">
+				<input type="hidden" name="uid" value="<?php echo $_GET['id'];?>">
+			
+				<div class="input-group">
+				<label>Measure</label>
+				<select name="measure">
+					<option value="Tooth Cleaning">Tooth Cleaning</option>
+					<option value="Examination">Examination</option>
+					<option value="Tooth Repair">Tooth Repair</option>
+					<option value="other">other</option>
+</select>
+				</div>
             
                <div class="input-group">
                 <label>Notes</label>
-                <input type="text" name="notes">
-            </div>
-            <form action="addmeasures.php" method="post">
+                 <textarea id="text" name="notes" cols="35" rows="4"></textarea>
+           </div>
+				<div class="input-group">
+				<input type="date" name="date" value="2020-06-30">
+				</div>
+               <div class="input-group">
             <button type="submit" name="back" class="btn">Add</button>
-            </form>
+			</div>
               
             
            

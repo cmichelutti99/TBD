@@ -29,7 +29,6 @@ if (isset($_POST['update'])){
     $fiscal_code = $_POST['fiscal_code'];
     $id = $_POST['id'];
     
-	$sql = "UPDATE `patients` SET `first_name` = \' neg\', `last_name` = \'er\', `fiscal_code` = \'12\' WHERE `patients`.`id` = 2";
 	
     mysqli_query($db, "UPDATE `patients` SET `first_name` = '$first_name', `last_name` = '$last_name', `fiscal_code` = '$fiscal_code' WHERE `patients`.`id` = $id");
     $_SESSION['msg'] = "Patient updated";

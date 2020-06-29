@@ -18,18 +18,19 @@ session_start();
 			$password = mysqli_real_escape_string($db, $password);
 
 
-			$s = "SELECT * FROM doctors WHERE user_name= '$user_name' && password = '".md5($password)."'"; // added md5() for encrypting the password
+			$s = "SELECT id FROM doctors WHERE user_name= '$user_name' && password = '".md5($password)."'"; // added md5() for encrypting the password
 
 			$result= mysqli_query($db, $s);
 			$num = mysqli_num_rows($result);
-		//	$row = mysqli_fetch_array($result);
+			
 
 
 
 		if($num == 1){
-
+			$row = mysqli_fetch_array($result);
+			$doctorid = $row['id'];
 			//Let's write username to Session;
-	
+			$_SESSION['doctorid'] = $doctorid;
 			$_SESSION['username'] = $user_name;
 	
 			header('location: dashboard.php');
