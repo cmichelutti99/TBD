@@ -36,7 +36,7 @@ session_start();
 			header('location: dashboard.php');
 		}else{
 	
-	//die("Wrong Username or Password!");
+	die("Wrong Username or Password! <a href= './login.php'>Back to login</a>");
 	
     header('location: login.php');
 		}

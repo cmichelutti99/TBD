@@ -4,9 +4,9 @@ session_start();
 
 	if(isset($_SESSION['username'])){
 		
-		header('location: index.php');
+		header('location: dashboard.php');
 	}
- // If user's already logged in, redirect to index.php
+ // If user's already logged in, redirect to dashboard.php
  
  
 ?>
