@@ -5,8 +5,7 @@ Patients
 - first_name (string)
 - last_name (string)
 - fiscal_code (string)
-- password (string)
-- doctor_id
+- email (string)
 
 Doctors
 - id (int, A_I)
@@ -14,8 +13,13 @@ Doctors
 - last_name (string)
 - user_name (string)
 - password (string)
+- ip_addr (string)
+- email (string)
 
-Measurements
-- date_time (datetime/int (11) - timestamp)
-- temperature (float)
-- patient_id
+appoint
+-id (int, A_I)
+-uid (int)
+-did (int)
+-measure (string)
+-notes (string)
+- date (datetime)
