@@ -77,10 +77,11 @@ if(!isset($_SESSION['username'])){
     
 </html>
 <?php
-    $query = $_GET['query']; 
+    if(!isset($_GET['query'])){
+		$_GET['query'] = "";
     // gets value sent over search form
-     
-    
+	}
+    $query = $_GET['query'];
          
         $query = htmlspecialchars($query); 
         // changes characters used in html to their equivalents, for example: < to &gt;

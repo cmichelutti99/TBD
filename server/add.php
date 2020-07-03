@@ -30,7 +30,7 @@ if(isset($_GET['edit'])){
         <button type="submit" name="back" class="btn">Back</button>
         </form>
 
-			<form method="post" action="server.php" name>
+			<form method="post" action="server.php" name="add">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="input-group">
                 <label>First name</label>
